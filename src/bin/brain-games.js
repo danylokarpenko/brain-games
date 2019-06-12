@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import whatIsYourName from '..';
+import askUserName from '..';
 console.log('Welcome to the Brain Games!');
-whatIsYourName();
-  
+askUserName();
