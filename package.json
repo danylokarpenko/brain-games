@@ -26,7 +26,6 @@
     "@babel/preset-env": "^7.4.5"
   },
   "dependencies": {
-    "hexlet-pairs": "^1.0.8",
     "readline-sync": "^1.4.9"
   }
 }
