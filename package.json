@@ -1,6 +1,6 @@
 {
   "name": "brain-games-karpenko",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "This is my first hexlet project \"Brain Games\"",
   "main": "index.js",
   "bin": {
