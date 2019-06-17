@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import ask from '..';
+import * as lib from '..';
 
 console.log('Welcome to the Brain Games!\n');
-ask();
+lib.askUserName();
