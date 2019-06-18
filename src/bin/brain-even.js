@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-import * as lib from '..';
+import * as logic from '..';
+import brainEven from '../games/mini-brain-even';
 
-const userName = lib.welcome('Answer "yes" if number even otherwise answer "no"');
+const userName = logic.welcome('Answer "yes" if number even otherwise answer "no"');
 
-lib.brainEven(userName);
+logic.loop(userName, brainEven(userName));

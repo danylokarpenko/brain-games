@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-import * as lib from '..';
+import * as logic from '..';
+import brainCalc from '../games/mini-brain-calc';
 
-const userName = lib.welcome('What is the result of the expression?');
+const userName = logic.welcome('What is the result of the expression?');
 
-lib.brainCalc(userName);
+logic.loop(userName, brainCalc(userName));
