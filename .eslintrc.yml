@@ -14,4 +14,6 @@ extends:
 rules:
   no-console: 0
   "arrow-body-style": ["error", "always"]
+  "allowTernary": true
+  "object-curly-newline": ["error", "never"]
 

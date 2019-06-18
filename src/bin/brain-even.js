@@ -1,4 +1,6 @@
 #!/usr/bin/env node
 import * as lib from '..';
 
-lib.brainEven();
+const userName = lib.welcome('Answer "yes" if number even otherwise answer "no"');
+
+lib.brainEven(userName);
