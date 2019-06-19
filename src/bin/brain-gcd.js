@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import * as logic from '..';
 import brainGCD from '../games/mini-brain-gcd';
 
