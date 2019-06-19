@@ -16,4 +16,5 @@ rules:
   "arrow-body-style": ["error", "always"]
   "allowTernary": true
   "object-curly-newline": ["error", "never"]
-
+  "treatUndefinedAsUnspecified": false
+  "args": "none"
