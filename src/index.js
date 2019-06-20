@@ -1,17 +1,16 @@
 import readlineSync from 'readline-sync';
-// import { cons, car, cdr } from 'hexlet-pairs';
 
-export const welcome = (description = '') => {
+export const welcome = (gameDescription = '') => {
   console.log('Welcome to the Brain Games!');
-  console.log(description !== '' ? `${description}\n` : '');
+  console.log(gameDescription !== '' ? `${gameDescription}\n` : '');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hi, ${userName}!\n`);
   return userName;
 };
 //  randomIntValue
-export const getRandomInt = (from, to) => {
-  const min = Math.ceil(from);
-  const max = Math.floor(to);
+export const getRandomInt = (fromIntNum, toIntNum) => {
+  const min = Math.ceil(fromIntNum);
+  const max = Math.floor(toIntNum);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 

@@ -9,24 +9,21 @@ const brainProgression = (userName) => {
 
     const arrSize = 10;
     const arr = [];
-    let add = 0;
-    let arrStr = '';
+    let arrToStr = '';
     let correctAnswer = 0;
 
     for (let i = 0; i < arrSize; i += 1) {
-      x += add;
       arr[i] = x;
-      add = step;
-
+      x += step;
       if (i === index) {
         correctAnswer = arr[i];
-        arrStr += '.. ';
+        arrToStr += '.. ';
       } else {
-        arrStr += `${arr[i]} `;
+        arrToStr += `${arr[i]} `;
       }
     }
 
-    console.log(`Question: ${arrStr}`);
+    console.log(`Question: ${arrToStr}`);
     const userAnswer = Math.round(readlineSync.question('Your answer: '));
 
     if (correctAnswer === userAnswer) {
