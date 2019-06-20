@@ -1,7 +1,6 @@
 import { getRandomInt } from '..';
 import readlineSync from 'readline-sync';
 
-
 const brainEven = (userName) => {
   return () => {
     const questionValue = getRandomInt(-100, 100);
