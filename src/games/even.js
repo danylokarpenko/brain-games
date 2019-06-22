@@ -13,6 +13,7 @@ const brainEven = userName => () => {
     console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
     return 0;
   }
+  return 1;
 };
 
 const game = () => {
