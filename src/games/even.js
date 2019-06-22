@@ -1,19 +1,23 @@
-import { getRandomInt } from '..';
-import readlineSync from 'readline-sync';
+import * as logic from '..';
 
 const brainEven = userName => () => {
-  const questionValue = getRandomInt(-100, 100);
-  console.log(`Question: ${questionValue}`);
-  const correctAnswer = questionValue % 2 === 0 ? 'yes' : 'no';
-  const userAnswer = readlineSync.question('Your answer: ');
+  const strQuestion = logic.getRandomInt(-100, 100);
+  const correctAnswer = strQuestion % 2 === 0 ? 'yes' : 'no';
 
-  if (correctAnswer === userAnswer) {
+  console.log(`Question: ${strQuestion} `);
+  const userAnswer = logic.getAnswer();
+
+  if (String(correctAnswer) === userAnswer) {
     console.log('Correct!');
   } else {
     console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
     return 0;
   }
-  return 1;
 };
 
-export default brainEven;
+const game = () => {
+  const userName = logic.welcome('Answer "yes" if number even otherwise answer "no"');
+  logic.loop(userName, brainEven(userName));
+};
+
+export default game;

@@ -8,6 +8,9 @@ export const welcome = (gameDescription = '') => {
   console.log(`Hi, ${userName}!\n`);
   return userName;
 };
+
+export const getAnswer = () => readlineSync.question('Your answer: ');
+
 //  randomIntValue
 export const getRandomInt = (fromIntNum, toIntNum) => {
   const min = Math.ceil(fromIntNum);
@@ -15,13 +18,10 @@ export const getRandomInt = (fromIntNum, toIntNum) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-export const loop = (userName, brainGame) => {
+export const loop = (userName, foo) => {
   for (let i = 0; i < 3; i += 1) {
-    const status = brainGame();
-    if (status === 0) {
-      break;
-    }
-    if (i === 2)console.log(`Congratulations, ${userName}!`);
+    const status = foo();
+    if (status === 0) break;
+    if (i === 2) console.log(`Congratulations, ${userName}!`);
   }
-  return 0;
 };
