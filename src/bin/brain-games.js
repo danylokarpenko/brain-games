@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import * as lib from '..';
+import { welcome } from '..';
 
-lib.welcome();
+welcome();
