@@ -6,7 +6,7 @@
 # How to play brain-even:
 [![asciicast](https://asciinema.org/a/0fPShFRYfUZJfGlc1uECEswlT.svg)](https://asciinema.org/a/0fPShFRYfUZJfGlc1uECEswlT)
 # How to play brain-calc:
-[![asciicast](https://asciinema.org/a/w1eZCu7I7WPwkX8jvasBw4J3P.svg)](https://asciinema.org/a/w1eZCu7I7WPwkX8jvasBw4J3P)
+[![asciicast](https://asciinema.org/a/98a5QpVGzH9Uw0eISOiQxLfE4.svg)](https://asciinema.org/a/98a5QpVGzH9Uw0eISOiQxLfE4)
 # How to play brain-gcd:
 [![asciicast](https://asciinema.org/a/0NUS5WqbXmsfQRIddSogz4TuE.svg)](https://asciinema.org/a/0NUS5WqbXmsfQRIddSogz4TuE)
 # How to play brain-progression:
