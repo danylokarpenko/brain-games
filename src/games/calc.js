@@ -36,7 +36,7 @@ const brainCalc = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
   const index = getRandomInt(0, 2);
-  const valuesArray = operation[2](x, y);
+  const valuesArray = operation[index](x, y);
   const question = `${valuesArray[0]}`;
   const correctAnswer = valuesArray[1];
   return [question, correctAnswer];
