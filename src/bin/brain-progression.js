@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-import * as logic from '..';
-import brainProgression from '../games/progression';
+import game from '../games/progression';
 
-const userName = logic.welcome('What number is missing in the progression?');
-
-logic.loop(userName, brainProgression(userName));
+game();

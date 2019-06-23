@@ -18,10 +18,21 @@ export const getRandomInt = (fromIntNum, toIntNum) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-export const loop = (userName, foo) => {
-  for (let i = 0; i < 3; i += 1) {
-    const status = foo();
-    if (status === 0) break;
+const amountOfRaunds = 3;
+export const run = (rules, generateGame) => {
+  const userName = welcome(rules);
+  for (let i = 0; i < amountOfRaunds; i += 1) {
+    const valuesArray = generateGame();
+    const question = valuesArray[0];
+    const correctAnswer = String(valuesArray[1]);
+    console.log(`Question: ${question}`);
+    const userAnswer = getAnswer();
+
+    if (correctAnswer === userAnswer) console.log('Correct!');
+    else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+      break;
+    }
     if (i === 2) console.log(`Congratulations, ${userName}!`);
   }
 };

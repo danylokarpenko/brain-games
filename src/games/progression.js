@@ -1,37 +1,35 @@
-import { getRandomInt } from '..';
-import readlineSync from 'readline-sync';
+import { getRandomInt, run } from '..';
 
-const brainProgression = userName => () => {
-  let x = getRandomInt(0, 100);
-  const index = getRandomInt(0, 9);
-  const step = getRandomInt(1, 10);
-
+const rules = 'What number is missing in the progression?';
+const createProgression = (startNumber, progressionStep, blindIndex) => {
   const arrSize = 10;
   const arr = [];
   let arrToStr = '';
   let correctAnswer = 0;
-
+  let x = startNumber;
   for (let i = 0; i < arrSize; i += 1) {
     arr[i] = x;
-    x += step;
-    if (i === index) {
+    x += progressionStep;
+    if (i === blindIndex) {
       correctAnswer = arr[i];
       arrToStr += '.. ';
     } else {
       arrToStr += `${arr[i]} `;
     }
   }
-
-  console.log(`Question: ${arrToStr}`);
-  const userAnswer = Math.round(readlineSync.question('Your answer: '));
-
-  if (correctAnswer === userAnswer) {
-    console.log('Correct!');
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
-    return 0;
-  }
-  return 1;
+  return [arrToStr, correctAnswer];
 };
 
-export default brainProgression;
+const brainProgression = () => {
+  let x = getRandomInt(0, 100);
+  const index = getRandomInt(0, 9);
+  const step = getRandomInt(1, 10);
+  if (x > 50 && step > 8) x = getRandomInt(0, 50);
+  const valuesArray = createProgression(x, step, index);
+
+  const question = `${valuesArray[0]}`;
+  const correctAnswer = valuesArray[1];
+  return [question, correctAnswer];
+};
+
+export default () => run(rules, brainProgression);

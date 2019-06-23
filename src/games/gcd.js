@@ -1,5 +1,4 @@
-import { getRandomInt } from '..';
-import readlineSync from 'readline-sync';
+import { getRandomInt, run } from '..';
 
 const gcd = (x, y) => {
   let smallest = x;
@@ -18,21 +17,15 @@ const gcd = (x, y) => {
   return 0;
 };
 
-const brainGCD = userName => () => {
+const rules = 'Find the greatest common divisor of given numbers.';
+
+const brainGCD = () => {
   const x = getRandomInt(1, 100);
   const y = getRandomInt(1, 100);
 
-  console.log(`Question: ${x} ${y}`);
+  const question = `${x} ${y}`;
   const correctAnswer = gcd(x, y);
-  const userAnswer = Math.round(readlineSync.question('Your answer: '));
-
-  if (correctAnswer === userAnswer) {
-    console.log('Correct!');
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
-    return 0;
-  }
-  return 1;
+  return [question, correctAnswer];
 };
 
-export default brainGCD;
+export default () => run(rules, brainGCD);

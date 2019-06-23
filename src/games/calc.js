@@ -1,31 +1,45 @@
-import { getRandomInt } from '..';
-import readlineSync from 'readline-sync';
+import { getRandomInt, run } from '..';
 
-const sum = (a, b, toStr = true) => (toStr === true ? a + b : `${a} + ${b}`);
-const sub = (a, b, toStr = true) => (toStr === true ? a - b : `${a} - ${b}`);
-const mul = (a, b, toStr = true) => (toStr === true ? a * b : `${a} * ${b}`);
+const sum = (a, b) => {
+  const question = b > 0 ? `${a} + ${b}` : `${a} - ${-b}`;
+  const correctAnswer = a + b;
+  return [question, correctAnswer];
+};
+
+
+const sub = (a, b) => {
+  const question = b > 0 ? `${a} - ${b}` : `${a} + ${-b}`;
+  const correctAnswer = a - b;
+  return [question, correctAnswer];
+};
+
+const mul = (x, y) => {
+  let a = x;
+  let b = y;
+  if ((a > 30 && b > 20) || (a < -30 && b < -20)) {
+    a = getRandomInt(-100, 100);
+    b = getRandomInt(-10, 10);
+  }
+  const question = b > 0 ? `${a} * ${b}` : `${a} * (${b})`;
+  const correctAnswer = a * b;
+  return [question, correctAnswer];
+};
 
 const operation = [3];
 operation[0] = sum;
 operation[1] = sub;
 operation[2] = mul;
 
-const brainCalc = userName => () => {
+const rules = 'What is the result of the expression?';
+
+const brainCalc = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
   const index = getRandomInt(0, 2);
-
-  console.log(`Question: ${operation[index](x, y, 'toStr')} `);
-  const correctAnswer = operation[index](x, y);
-  const userAnswer = Math.round(readlineSync.question('Your answer: '));
-
-  if (correctAnswer === userAnswer) {
-    console.log('Correct!');
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
-    return 0;
-  }
-  return 1;
+  const valuesArray = operation[index](x, y);
+  const question = `${valuesArray[0]}`;
+  const correctAnswer = valuesArray[1];
+  return [question, correctAnswer];
 };
 
-export default brainCalc;
+export default () => run(rules, brainCalc);
