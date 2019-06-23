@@ -1,6 +1,6 @@
 {
   "name": "brain-games-karpenko",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "This is my first hexlet project \"Brain Games\"",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
