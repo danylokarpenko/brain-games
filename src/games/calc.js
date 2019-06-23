@@ -16,7 +16,7 @@ const sub = (a, b) => {
 const mul = (x, y) => {
   let a = x;
   let b = y;
-  if ((a > 30 && b > 20) || (a < -30 && b < -20)) {
+  if (Math.abs(a) > 30 || Math.abs(b) > 20) {
     a = getRandomInt(-100, 100);
     b = getRandomInt(-10, 10);
   }
@@ -36,7 +36,7 @@ const brainCalc = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
   const index = getRandomInt(0, 2);
-  const valuesArray = operation[index](x, y);
+  const valuesArray = operation[2](x, y);
   const question = `${valuesArray[0]}`;
   const correctAnswer = valuesArray[1];
   return [question, correctAnswer];
