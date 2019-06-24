@@ -1,36 +1,30 @@
 
 import readlineSync from 'readline-sync';
 
-export const welcome = (gameDescription = '') => {
-  console.log('Welcome to the Brain Games!');
-  console.log(gameDescription !== '' ? `${gameDescription}\n` : '');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hi, ${userName}!\n`);
-  return userName;
-};
-
-export const getAnswer = () => readlineSync.question('Your answer: ');
-
-//  randomIntValue
-export const getRandomInt = (fromIntNum, toIntNum) => {
-  const min = Math.ceil(fromIntNum);
-  const max = Math.floor(toIntNum);
+export const getRandomInt = (fromIntNumIncluded, toIntNumIncluded) => {
+  const min = Math.ceil(fromIntNumIncluded);
+  const max = Math.floor(toIntNumIncluded);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 const amountOfRaunds = 3;
-export const run = (rules, generateGame) => {
-  const userName = welcome(rules);
+export const run = (gameDescription, generateGame = 0) => {
+  console.log('Welcome to the Brain Games!');
+  console.log(gameDescription !== '' ? `${gameDescription}\n` : '');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hi, ${userName}!\n`);
   for (let i = 0; i < amountOfRaunds; i += 1) {
-    const valuesArray = generateGame();
-    const question = valuesArray[0];
-    const correctAnswer = String(valuesArray[1]);
+    if (generateGame === 0) break;
+    const values = generateGame();
+    const question = values[0];
+    const correctAnswer = String(values[1]);
     console.log(`Question: ${question}`);
-    const userAnswer = getAnswer();
+    const userAnswer = readlineSync.question('Your answer: ');
 
     if (correctAnswer === userAnswer) console.log('Correct!');
     else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${userName}!`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${userName}!`);
       break;
     }
     if (i === 2) console.log(`Congratulations, ${userName}!`);

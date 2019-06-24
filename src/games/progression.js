@@ -1,15 +1,15 @@
 import { getRandomInt, run } from '..';
 
-const rules = 'What number is missing in the progression?';
+const gameDescription = 'What number is missing in the progression?';
 const createProgression = (startNumber, progressionStep, blindIndex) => {
   const arrSize = 10;
   const arr = [];
   let arrToStr = '';
   let correctAnswer = 0;
-  let x = startNumber;
+  let firstElementOfProgression = startNumber;
   for (let i = 0; i < arrSize; i += 1) {
-    arr[i] = x;
-    x += progressionStep;
+    arr[i] = firstElementOfProgression;
+    firstElementOfProgression += progressionStep;
     if (i === blindIndex) {
       correctAnswer = arr[i];
       arrToStr += '.. ';
@@ -21,15 +21,15 @@ const createProgression = (startNumber, progressionStep, blindIndex) => {
 };
 
 const brainProgression = () => {
-  let x = getRandomInt(0, 100);
+  let firstElement = getRandomInt(0, 100);
   const index = getRandomInt(0, 9);
   const step = getRandomInt(1, 10);
-  if (x > 50 && step > 8) x = getRandomInt(0, 50);
-  const valuesArray = createProgression(x, step, index);
+  if (firstElement > 50 && step > 8) firstElement = getRandomInt(0, 50);
+  const values = createProgression(firstElement, step, index);
 
-  const question = `${valuesArray[0]}`;
-  const correctAnswer = valuesArray[1];
+  const question = `${values[0]}`;
+  const correctAnswer = values[1];
   return [question, correctAnswer];
 };
 
-export default () => run(rules, brainProgression);
+export default () => run(gameDescription, brainProgression);

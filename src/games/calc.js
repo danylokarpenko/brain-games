@@ -1,45 +1,72 @@
 import { getRandomInt, run } from '..';
 
-const sum = (a, b) => {
-  const question = b > 0 ? `${a} + ${b}` : `${a} - ${-b}`;
-  const correctAnswer = a + b;
-  return [question, correctAnswer];
-};
+// const sum = (a, b) => {
+//   const question = b > 0 ? `${a} + ${b}` : `${a} - ${-b}`;
+//   const correctAnswer = a + b;
+//   return [question, correctAnswer];
+// };
+// const sub = (a, b) => {
+//   const question = b > 0 ? `${a} - ${b}` : `${a} + ${-b}`;
+//   const correctAnswer = a - b;
+//   return [question, correctAnswer];
+// };
+// const mul = (x, y) => {
+//   let a = x;
+//   let b = y;
+//   if (Math.abs(a) > 30 || Math.abs(b) > 20) {
+//     a = getRandomInt(-100, 100);
+//     b = getRandomInt(-10, 10);
+//   }
+//   const question = b > 0 ? `${a} * ${b}` : `${a} * (${b})`;
+//   const correctAnswer = a * b;
+//   return [question, correctAnswer];
+// };
+// const operation = [3];
+// operation[0] = sum;
+// operation[1] = sub;
+// operation[2] = mul;
 
-
-const sub = (a, b) => {
-  const question = b > 0 ? `${a} - ${b}` : `${a} + ${-b}`;
-  const correctAnswer = a - b;
-  return [question, correctAnswer];
-};
-
-const mul = (x, y) => {
-  let a = x;
-  let b = y;
-  if (Math.abs(a) > 30 || Math.abs(b) > 20) {
-    a = getRandomInt(-100, 100);
-    b = getRandomInt(-10, 10);
+const operations = (operationIndex, a, b) => {
+  switch (operationIndex) {
+    case 1: {
+      const question = b > 0 ? `${a} + ${b}` : `${a} - ${-b}`;
+      const correctAnswer = a + b;
+      return [question, correctAnswer];
+    }
+    case 2: {
+      const question2 = b > 0 ? `${a} - ${b}` : `${a} + ${-b}`;
+      const correctAnswer2 = a - b;
+      return [question2, correctAnswer2];
+    }
+    case 3: {
+      let x = a;
+      let y = b;
+      if (Math.abs(x) > 30 || Math.abs(y) > 20) {
+        x = getRandomInt(-100, 100);
+        y = getRandomInt(-10, 10);
+      }
+      const question3 = b > 0 ? `${x} * ${y}` : `${x} * (${y})`;
+      const correctAnswer3 = x * y;
+      return [question3, correctAnswer3];
+    }
+    default:
+      return 0;
   }
-  const question = b > 0 ? `${a} * ${b}` : `${a} * (${b})`;
-  const correctAnswer = a * b;
-  return [question, correctAnswer];
 };
 
-const operation = [3];
-operation[0] = sum;
-operation[1] = sub;
-operation[2] = mul;
+const gameDescription = 'What is the result of the expression?';
 
-const rules = 'What is the result of the expression?';
+const firstCase = 1;
+const lastCase = 3;
 
 const brainCalc = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
-  const index = getRandomInt(0, 2);
-  const valuesArray = operation[index](x, y);
-  const question = `${valuesArray[0]}`;
-  const correctAnswer = valuesArray[1];
+  const indexOfOperation = getRandomInt(firstCase, lastCase);
+  const values = operations(indexOfOperation, x, y);
+  const question = `${values[0]}`;
+  const correctAnswer = values[1];
   return [question, correctAnswer];
 };
 
-export default () => run(rules, brainCalc);
+export default () => run(gameDescription, brainCalc);

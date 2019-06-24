@@ -1,6 +1,7 @@
 import { getRandomInt, run } from '..';
 
 const isPrime = (num) => {
+  if (num < 2) return false;
   const half = num / 2;
   for (let i = 2; i <= half; i += 1) {
     if (num % i === 0) {
@@ -10,7 +11,7 @@ const isPrime = (num) => {
   return true;
 };
 
-const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const brainPrime = () => {
   const question = getRandomInt(-10, 200);
@@ -18,4 +19,4 @@ const brainPrime = () => {
   return [question, correctAnswer];
 };
 
-export default () => run(rules, brainPrime);
+export default () => run(gameDescription, brainPrime);

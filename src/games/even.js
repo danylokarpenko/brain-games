@@ -1,11 +1,12 @@
 import { getRandomInt, run } from '..';
 
-const rules = 'Answer "yes" if number even otherwise answer "no"';
+const gameDescription = 'Answer "yes" if number even otherwise answer "no"';
 
+const isEven = num => (num % 2 === 0);
 const brainEven = () => {
   const question = getRandomInt(-100, 100);
-  const correctAnswer = question % 2 === 0 ? 'yes' : 'no';
+  const correctAnswer = isEven(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
-export default () => run(rules, brainEven);
+export default () => run(gameDescription, brainEven);
