@@ -13,10 +13,10 @@ const isPrime = (num) => {
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const brainPrime = () => {
+const generateBrainPrime = () => {
   const question = getRandomInt(-10, 200);
   const correctAnswer = isPrime(question) ? 'yes' : 'no';
   return [question, correctAnswer];
 };
 
-export default () => run(gameDescription, brainPrime);
+export default () => run(gameDescription, generateBrainPrime);

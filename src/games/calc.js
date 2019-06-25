@@ -33,7 +33,7 @@ const gameDescription = 'What is the result of the expression?';
 const firstCase = 1;
 const lastCase = 3;
 
-const brainCalc = () => {
+const generateBrainCalc = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
   const indexOfOperation = getRandomInt(firstCase, lastCase);
@@ -43,4 +43,4 @@ const brainCalc = () => {
   return [question, correctAnswer];
 };
 
-export default () => run(gameDescription, brainCalc);
+export default () => run(gameDescription, generateBrainCalc);

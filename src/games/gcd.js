@@ -1,25 +1,14 @@
 import { getRandomInt, run } from '..';
 
 const calculateGcd = (x, y) => {
-  let smallest = x;
-  let bigest = y;
-  if (x > y) {
-    smallest = y;
-    bigest = x;
-  } else if (x < y) {
-    smallest = x;
-    bigest = y;
-  } else return x;
-
-  for (let i = smallest; smallest > 0; i -= 1) {
-    if (smallest % i === 0 && bigest % i === 0) return i;
-  }
-  return 0;
+  if (x === 0) return y;
+  if (x < y) return calculateGcd(y, x);
+  return calculateGcd(x - y, y);
 };
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const brainGcd = () => {
+const generateBrainGcd = () => {
   const x = getRandomInt(1, 100);
   const y = getRandomInt(1, 100);
 
@@ -28,4 +17,4 @@ const brainGcd = () => {
   return [question, correctAnswer];
 };
 
-export default () => run(gameDescription, brainGcd);
+export default () => run(gameDescription, generateBrainGcd);
