@@ -2,17 +2,17 @@ import { getRandomInt, run } from '..';
 
 const operations = (operationIndex, a, b) => {
   switch (operationIndex) {
-    case 1: {
+    case '+': {
       const question = b > 0 ? `${a} + ${b}` : `${a} - ${-b}`;
       const correctAnswer = a + b;
       return [question, correctAnswer];
     }
-    case 2: {
+    case '-': {
       const question2 = b > 0 ? `${a} - ${b}` : `${a} + ${-b}`;
       const correctAnswer2 = a - b;
       return [question2, correctAnswer2];
     }
-    case 3: {
+    case '*': {
       let x = a;
       let y = b;
       if (Math.abs(x) > 30 || Math.abs(y) > 20) {
@@ -30,14 +30,15 @@ const operations = (operationIndex, a, b) => {
 
 const gameDescription = 'What is the result of the expression?';
 
-const firstCase = 1;
-const lastCase = 3;
+const firstCase = 0;
+const lastCase = 2;
+const sOperations = '+-*';
 
 const generateBrainCalc = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
-  const indexOfOperation = getRandomInt(firstCase, lastCase);
-  const values = operations(indexOfOperation, x, y);
+  const indexOfString = getRandomInt(firstCase, lastCase);
+  const values = operations(sOperations[indexOfString], x, y);
   const question = `${values[0]}`;
   const correctAnswer = values[1];
   return [question, correctAnswer];
