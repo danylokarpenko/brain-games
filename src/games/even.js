@@ -1,4 +1,5 @@
-import { getRandomInt, run } from '..';
+import run from '..';
+import getRandomInt from '../utils';
 
 const gameDescription = 'Answer "yes" if number even otherwise answer "no"';
 

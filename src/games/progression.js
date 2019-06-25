@@ -1,9 +1,12 @@
-import { getRandomInt, run } from '..';
+import run from '..';
+import getRandomInt from '../utils';
 
 const gameDescription = 'What number is missing in the progression?';
+
+const arrSize = 10;
+const aProgression = [];
+
 const createProgression = (startNumber, progressionStep, blindIndex) => {
-  const arrSize = 10;
-  const aProgression = [];
   let sProgression = '';
   let correctAnswer = 0;
   for (let i = 0; i < arrSize; i += 1) {
@@ -26,7 +29,7 @@ const generateBrainProgression = () => {
   const values = createProgression(firstElement, step, index);
 
   const question = values[0];
-  const correctAnswer = values[1];
+  const correctAnswer = String(values[1]);
   return [question, correctAnswer];
 };
 

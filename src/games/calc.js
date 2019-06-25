@@ -1,4 +1,5 @@
-import { getRandomInt, run } from '..';
+import run from '..';
+import getRandomInt from '../utils';
 
 const operations = (operationIndex, a, b) => {
   switch (operationIndex) {
@@ -30,17 +31,17 @@ const operations = (operationIndex, a, b) => {
 
 const gameDescription = 'What is the result of the expression?';
 
-const firstCase = 0;
-const lastCase = 2;
+const firstIndex = 0;
+const lastIndex = 2;
 const sOperations = '+-*';
 
 const generateBrainCalc = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
-  const indexOfString = getRandomInt(firstCase, lastCase);
+  const indexOfString = getRandomInt(firstIndex, lastIndex);
   const values = operations(sOperations[indexOfString], x, y);
   const question = `${values[0]}`;
-  const correctAnswer = values[1];
+  const correctAnswer = String(values[1]);
   return [question, correctAnswer];
 };
 

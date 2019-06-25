@@ -1,23 +1,16 @@
 
 import readlineSync from 'readline-sync';
 
-export const getRandomInt = (fromIntNumIncluded, toIntNumIncluded) => {
-  const min = Math.ceil(fromIntNumIncluded);
-  const max = Math.floor(toIntNumIncluded);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-const amountOfRaunds = 3;
-export const run = (gameDescription, generateGame = 0) => {
+const raundsCount = 3;
+const run = (gameDescription, generateRaund) => {
   console.log('Welcome to the Brain Games!');
-  console.log(gameDescription !== '' ? `${gameDescription}\n` : '');
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hi, ${userName}!\n`);
-  for (let i = 0; i < amountOfRaunds; i += 1) {
-    if (generateGame === 0) break;
-    const values = generateGame();
-    const question = values[0];
-    const correctAnswer = String(values[1]);
+  for (let i = 0; i < raundsCount; i += 1) {
+    if (generateRaund === 0) break;
+    const raundData = generateRaund();
+    const question = raundData[0];
+    const correctAnswer = raundData[1];
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
 
@@ -27,6 +20,8 @@ export const run = (gameDescription, generateGame = 0) => {
       console.log(`Let's try again, ${userName}!`);
       break;
     }
-    if (i === 2) console.log(`Congratulations, ${userName}!`);
+    console.log(`Congratulations, ${userName}!`);
   }
 };
+
+export default run;

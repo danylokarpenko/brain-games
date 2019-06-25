@@ -1,4 +1,5 @@
-import { getRandomInt, run } from '..';
+import run from '..';
+import getRandomInt from '../utils';
 
 const calculateGcd = (x, y) => {
   if (x === 0) return y;
@@ -13,7 +14,7 @@ const generateBrainGcd = () => {
   const y = getRandomInt(1, 100);
 
   const question = `${x} ${y}`;
-  const correctAnswer = calculateGcd(x, y);
+  const correctAnswer = String(calculateGcd(x, y));
   return [question, correctAnswer];
 };
 

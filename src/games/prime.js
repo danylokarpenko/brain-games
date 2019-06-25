@@ -1,4 +1,5 @@
-import { getRandomInt, run } from '..';
+import run from '..';
+import getRandomInt from '../utils';
 
 const isPrime = (num) => {
   if (num < 2) return false;
