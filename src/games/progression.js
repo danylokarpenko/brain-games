@@ -3,34 +3,33 @@ import getRandomInt from '../utils';
 
 const gameDescription = 'What number is missing in the progression?';
 
-const arrSize = 10;
-const aProgression = [];
+const arraySize = 10;
+const arrayProgression = [];
 
-const createProgression = (startNumber, progressionStep, blindIndex) => {
-  let sProgression = '';
+const createProgressionData = (startNumber, progressionStep, blindIndex) => {
+  let stringProgression = '';
   let correctAnswer = 0;
-  for (let i = 0; i < arrSize; i += 1) {
-    aProgression[i] = startNumber + progressionStep * i;
+  for (let i = 0; i < arraySize; i += 1) {
+    arrayProgression[i] = startNumber + progressionStep * i;
     if (i === blindIndex) {
-      correctAnswer = aProgression[i];
-      sProgression += '.. ';
+      correctAnswer = arrayProgression[i];
+      stringProgression += '.. ';
     } else {
-      sProgression += `${aProgression[i]} `;
+      stringProgression += `${arrayProgression[i]} `;
     }
   }
-  return [sProgression, correctAnswer];
+  return [stringProgression, correctAnswer];
 };
 
-const generateBrainProgression = () => {
-  let firstElement = getRandomInt(0, 100);
-  const index = getRandomInt(0, 9);
+const generateRoundData = () => {
+  const firstElement = getRandomInt(0, 100);
+  const hidenIndexOfprogression = getRandomInt(0, 9);
   const step = getRandomInt(1, 10);
-  if (firstElement > 50 && step > 8) firstElement = getRandomInt(0, 50);
-  const values = createProgression(firstElement, step, index);
+  const values = createProgressionData(firstElement, step, hidenIndexOfprogression);
 
   const question = values[0];
   const correctAnswer = String(values[1]);
   return [question, correctAnswer];
 };
 
-export default () => run(gameDescription, generateBrainProgression);
+export default () => run(gameDescription, generateRoundData);

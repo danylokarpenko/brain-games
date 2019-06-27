@@ -1,17 +1,15 @@
 import run from '..';
 import getRandomInt from '../utils';
 
-const operations = (operationIndex, a, b) => {
+const generateOperation = (operationIndex, a, b) => {
   switch (operationIndex) {
     case '+': {
-      const question = b > 0 ? `${a} + ${b}` : `${a} - ${-b}`;
       const correctAnswer = a + b;
-      return [question, correctAnswer];
+      return `${correctAnswer}`;
     }
     case '-': {
-      const question2 = b > 0 ? `${a} - ${b}` : `${a} + ${-b}`;
       const correctAnswer2 = a - b;
-      return [question2, correctAnswer2];
+      return `${correctAnswer2}`;
     }
     case '*': {
       let x = a;
@@ -20,9 +18,8 @@ const operations = (operationIndex, a, b) => {
         x = getRandomInt(-100, 100);
         y = getRandomInt(-10, 10);
       }
-      const question3 = b > 0 ? `${x} * ${y}` : `${x} * (${y})`;
       const correctAnswer3 = x * y;
-      return [question3, correctAnswer3];
+      return `${correctAnswer3}`;
     }
     default:
       return 0;
@@ -31,18 +28,15 @@ const operations = (operationIndex, a, b) => {
 
 const gameDescription = 'What is the result of the expression?';
 
-const firstIndex = 0;
-const lastIndex = 2;
-const sOperations = '+-*';
+const stringOperations = '+-*';
 
-const generateBrainCalc = () => {
+const generateRoundData = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
-  const indexOfString = getRandomInt(firstIndex, lastIndex);
-  const values = operations(sOperations[indexOfString], x, y);
-  const question = `${values[0]}`;
-  const correctAnswer = String(values[1]);
+  const indexOfString = getRandomInt(0, 2);
+  const question = y >= 0 ? `${x} ${stringOperations[indexOfString]} ${y}` : `${x} ${stringOperations[indexOfString]} (${y})`;
+  const correctAnswer = generateOperation(stringOperations[indexOfString], x, y);
   return [question, correctAnswer];
 };
 
-export default () => run(gameDescription, generateBrainCalc);
+export default () => run(gameDescription, generateRoundData);
