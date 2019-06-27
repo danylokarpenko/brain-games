@@ -17,12 +17,12 @@ Command to install brain-games-karpenko:
 
 npm i brain-games-karpenko -g
 
-[![asciicast](https://asciinema.org/a/lXdzZeWEAcIDuDLPqocXwpN4L.svg)](https://asciinema.org/a/lXdzZeWEAcIDuDLPqocXwpN4L)
+[![asciicast](https://asciinema.org/a/XfranntpNpOOPAdeOuX8BHMva.svg)](https://asciinema.org/a/XfranntpNpOOPAdeOuX8BHMva)
 
 # How to play brain-even:
 
 Answer "yes" if number even otherwise answer "no".
-[![asciicast](https://asciinema.org/a/0fPShFRYfUZJfGlc1uECEswlT.svg)](https://asciinema.org/a/0fPShFRYfUZJfGlc1uECEswlT)
+[![asciicast](https://asciinema.org/a/Ju6MG1yCLxfEcV1OJqqS05pY0.svg)](https://asciinema.org/a/Ju6MG1yCLxfEcV1OJqqS05pY0)
 
 # How to play brain-calc:
 
@@ -32,14 +32,14 @@ What is the result of the expression?
 # How to play brain-gcd:
 
 Find the greatest common divisor of given numbers.
-[![asciicast](https://asciinema.org/a/0NUS5WqbXmsfQRIddSogz4TuE.svg)](https://asciinema.org/a/0NUS5WqbXmsfQRIddSogz4TuE)
+[![asciicast](https://asciinema.org/a/7854aTs7hVmjjAgyBAedpS7le.svg)](https://asciinema.org/a/7854aTs7hVmjjAgyBAedpS7le)
 
 # How to play brain-progression:
 
 What number is missing in the progression?
-[![asciicast](https://asciinema.org/a/gpqpHd9efs4OEogwwDOdQTL4h.svg)](https://asciinema.org/a/gpqpHd9efs4OEogwwDOdQTL4h)
+[![asciicast](https://asciinema.org/a/kdByCOOyVRFfSYLd4L8LUYfBX.svg)](https://asciinema.org/a/kdByCOOyVRFfSYLd4L8LUYfBX)
 
 # How to play brain-prime:
 
 Answer "yes" if given number is prime. Otherwise answer "no".
-[![asciicast](https://asciinema.org/a/RETeF6ToyMV3UL5HXdZcvvKM3.svg)](https://asciinema.org/a/RETeF6ToyMV3UL5HXdZcvvKM3)
+[![asciicast](https://asciinema.org/a/3s52DsX4rok2sm0yNUsCQaLIZ.svg)](https://asciinema.org/a/3s52DsX4rok2sm0yNUsCQaLIZ)
