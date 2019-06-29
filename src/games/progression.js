@@ -3,32 +3,21 @@ import getRandomInt from '../utils';
 
 const gameDescription = 'What number is missing in the progression?';
 
-const arraySize = 10;
-const arrayProgression = [];
+const progressionSize = 10;
 
-const createProgressionData = (startNumber, progressionStep, blindIndex) => {
-  let stringProgression = '';
-  let correctAnswer = 0;
-  for (let i = 0; i < arraySize; i += 1) {
-    arrayProgression[i] = startNumber + progressionStep * i;
-    if (i === blindIndex) {
-      correctAnswer = arrayProgression[i];
-      stringProgression += '.. ';
-    } else {
-      stringProgression += `${arrayProgression[i]} `;
-    }
-  }
-  return [stringProgression, correctAnswer];
+const makeQuestion = (startNumber, progressionStep, missingNumberIndex) => {
+  let question = '';
+  const missingSpace = '..';
+  for (let i = 0; i < progressionSize; i += 1) question += `${missingNumberIndex !== i ? startNumber + progressionStep * i : missingSpace} `;
+  return question;
 };
 
 const generateRoundData = () => {
   const firstElement = getRandomInt(0, 100);
-  const hidenIndexOfprogression = getRandomInt(0, 9);
+  const missingNumberIndex = getRandomInt(0, progressionSize - 1);
   const step = getRandomInt(1, 10);
-  const values = createProgressionData(firstElement, step, hidenIndexOfprogression);
-
-  const question = values[0];
-  const correctAnswer = String(values[1]);
+  const question = makeQuestion(firstElement, step, missingNumberIndex);
+  const correctAnswer = String(firstElement + step * missingNumberIndex);
   return [question, correctAnswer];
 };
 

@@ -8,9 +8,8 @@ const run = (gameDescription, generateRaund) => {
   console.log(`Hi, ${userName}!\n`);
 
   for (let i = 0; i < roundsCount; i += 1) {
-    const raundData = generateRaund();
-    const question = raundData[0];
-    const correctAnswer = raundData[1];
+    const roundData = generateRaund();
+    const [question, correctAnswer] = roundData;
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     if (correctAnswer === userAnswer) console.log('Correct!');
@@ -19,8 +18,8 @@ const run = (gameDescription, generateRaund) => {
       console.log(`Let's try again, ${userName}!`);
       return;
     }
-    console.log(`Congratulations, ${userName}!`);
   }
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default run;
