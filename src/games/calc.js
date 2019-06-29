@@ -1,6 +1,8 @@
 import run from '..';
 import getRandomInt from '../utils';
 
+const gameDescription = 'What is the result of the expression?';
+
 const calculateValue = (operation, a, b) => {
   let correctAnswer = 0;
   switch (operation) {
@@ -21,21 +23,16 @@ const calculateValue = (operation, a, b) => {
   }
 };
 
-const gameDescription = 'What is the result of the expression?';
-
 const operations = '+-*';
+
+const wrapNegativeValues = x => (x < 0 ? `(${x})` : `${x}`);
 
 const generateRoundData = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
   const operationIndex = getRandomInt(0, operations.length - 1);
 
-  let question = '';
-  if (y < 0 && x < 0) question = `(${x}) ${operations[operationIndex]} (${y})`;
-  else if (y >= 0 && x >= 0) question = `${x} ${operations[operationIndex]} ${y}`;
-  else if (x < 0) question = `(${x}) ${operations[operationIndex]} ${y}`;
-  else if (y < 0) question = `${x} ${operations[operationIndex]} (${y})`;
-
+  const question = `${wrapNegativeValues(x)} ${operations[operationIndex]} ${wrapNegativeValues(y)}`;
   const correctAnswer = calculateValue(operations[operationIndex], x, y);
 
   return [question, correctAnswer];

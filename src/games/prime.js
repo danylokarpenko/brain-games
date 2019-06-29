@@ -1,6 +1,8 @@
 import run from '..';
 import getRandomInt from '../utils';
 
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 const isPrime = (num) => {
   if (num < 2) return false;
   const half = num / 2;
@@ -11,8 +13,6 @@ const isPrime = (num) => {
   }
   return true;
 };
-
-const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const generateRoundData = () => {
   const question = getRandomInt(-10, 200);

@@ -1,13 +1,13 @@
 import run from '..';
 import getRandomInt from '../utils';
 
+const gameDescription = 'Find the greatest common divisor of given numbers.';
+
 const findGcd = (x, y) => {
   if (x === 0) return y;
   if (x < y) return findGcd(y, x);
   return findGcd(x - y, y);
 };
-
-const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const generateRoundData = () => {
   const x = getRandomInt(1, 100);
