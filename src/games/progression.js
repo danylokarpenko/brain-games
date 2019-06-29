@@ -8,7 +8,7 @@ const progressionSize = 10;
 const makeQuestion = (startNumber, progressionStep, missingNumberIndex) => {
   let question = '';
   const missingSpace = '..';
-  for (let i = 0; i < progressionSize; i += 1) question += `${missingNumberIndex !== i ? startNumber + progressionStep * i : missingSpace} `;
+  for (let i = 0; i < progressionSize; i += 1) question = `${question}${missingNumberIndex !== i ? startNumber + progressionStep * i : missingSpace} `;
   return question;
 };
 
