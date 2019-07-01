@@ -5,10 +5,10 @@ const gameDescription = 'What number is missing in the progression?';
 
 const progressionSize = 10;
 
-const makeQuestion = (startNumber, progressionStep, missingNumberIndex) => {
+const makeQuestion = (startElement, progressionStep, missingElementIndex) => {
   let question = '';
   const missingSpace = '..';
-  for (let i = 0; i < progressionSize; i += 1) question = `${question}${missingNumberIndex !== i ? startNumber + progressionStep * i : missingSpace} `;
+  for (let i = 0; i < progressionSize; i += 1) question = `${question}${missingElementIndex !== i ? startElement + progressionStep * i : missingSpace} `;
   return question;
 };
 

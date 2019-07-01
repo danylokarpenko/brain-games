@@ -1,8 +1,8 @@
 install:
-	npm install
+	make link
 start:
 	npx babel-node src/bin/brain-${game}.js
 publish:
-	npm publish
+	npm publish --dry-run
 lint:
 	npx eslint .

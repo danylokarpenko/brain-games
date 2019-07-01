@@ -4,19 +4,15 @@ import getRandomInt from '../utils';
 const gameDescription = 'What is the result of the expression?';
 
 const calculateValue = (operation, a, b) => {
-  let correctAnswer = 0;
   switch (operation) {
     case '+': {
-      correctAnswer = a + b;
-      return `${correctAnswer}`;
+      return `${a + b}`;
     }
     case '-': {
-      correctAnswer = a - b;
-      return `${correctAnswer}`;
+      return `${a - b}`;
     }
     case '*': {
-      correctAnswer = a * b;
-      return `${correctAnswer}`;
+      return `${a * b}`;
     }
     default:
       return null;
@@ -25,14 +21,14 @@ const calculateValue = (operation, a, b) => {
 
 const operations = '+-*';
 
-const wrapNegativeValues = x => (x < 0 ? `(${x})` : `${x}`);
+const putInBrackets = x => (x < 0 ? `(${x})` : `${x}`);
 
 const generateRoundData = () => {
   const x = getRandomInt(-100, 100);
   const y = getRandomInt(-100, 100);
   const operationIndex = getRandomInt(0, operations.length - 1);
 
-  const question = `${wrapNegativeValues(x)} ${operations[operationIndex]} ${wrapNegativeValues(y)}`;
+  const question = `${putInBrackets(x)} ${operations[operationIndex]} ${putInBrackets(y)}`;
   const correctAnswer = calculateValue(operations[operationIndex], x, y);
 
   return [question, correctAnswer];
