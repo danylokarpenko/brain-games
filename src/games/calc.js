@@ -5,15 +5,12 @@ const gameDescription = 'What is the result of the expression?';
 
 const calculateExpression = (operation, a, b) => {
   switch (operation) {
-    case '+': {
+    case '+':
       return a + b;
-    }
-    case '-': {
+    case '-':
       return a - b;
-    }
-    case '*': {
+    case '*':
       return a * b;
-    }
     default:
       return null;
   }
